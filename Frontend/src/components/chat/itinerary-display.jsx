@@ -36,7 +36,7 @@ export default function ItineraryDisplay({
     return /*#__PURE__*/_jsxs("div", {
       className: "space-y-8 pb-8 animate-fade-in-up",
       children: [/*#__PURE__*/_jsxs("div", {
-        className: "relative overflow-hidden rounded-[2rem] bg-slate-900 p-6 md:p-8 text-white shadow-2xl",
+        className: "relative overflow-hidden rounded-3xl md:rounded-[2rem] bg-slate-900 p-5 md:p-8 text-white shadow-2xl",
         children: [/*#__PURE__*/_jsx("div", {
           className: "absolute top-0 right-0 w-64 h-64 bg-orange-500/20 rounded-full blur-[80px]"
         }), /*#__PURE__*/_jsx("div", {
@@ -58,7 +58,7 @@ export default function ItineraryDisplay({
             className: "text-2xl md:text-5xl font-black mb-6 leading-tight tracking-tight",
             children: itinerary.title
           }), /*#__PURE__*/_jsxs("div", {
-            className: "grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 border-t border-white/10",
+            className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-6 border-t border-white/10",
             children: [/*#__PURE__*/_jsxs("div", {
               className: "space-y-1",
               children: [/*#__PURE__*/_jsx("p", {
@@ -103,36 +103,9 @@ export default function ItineraryDisplay({
           })]
         })]
       }),
-      /* Total Investment Banner - MOVED TO TOP */
-      /*#__PURE__*/_jsxs("div", {
-        className: "glass p-6 md:p-8 rounded-[2rem] border-orange-200/50 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl",
-        children: [/*#__PURE__*/_jsxs("div", {
-          className: "flex items-center gap-4 w-full",
-          children: [/*#__PURE__*/_jsx("div", {
-            className: "h-14 w-14 rounded-full bg-slate-900 flex items-center justify-center text-white shadow-lg shrink-0",
-            children: /*#__PURE__*/_jsx(Wallet, {
-              className: "h-7 w-7 text-orange-500"
-            })
-          }), /*#__PURE__*/_jsxs("div", {
-            children: [/*#__PURE__*/_jsx("p", {
-              className: "text-[10px] font-black uppercase tracking-widest text-slate-400",
-              children: "Total Investment"
-            }), /*#__PURE__*/_jsx("h3", {
-              className: "text-xl md:text-3xl font-black text-slate-800 leading-tight",
-              children: itinerary.total_estimated_cost
-            })]
-          })]
-        }), /*#__PURE__*/_jsx("div", {
-          className: "w-full md:max-w-md",
-          children: /*#__PURE__*/_jsxs("p", {
-            className: "text-sm font-medium text-slate-500 italic leading-relaxed text-left md:text-right italic",
-            children: ["\"", itinerary.notes || 'May your journey be filled with divine light and infinite peace.', "\""]
-          })
-        })]
-      }),
       /* Detailed Schedule Section */
       /*#__PURE__*/_jsxs("div", {
-        className: "bg-white rounded-[2rem] border border-slate-100 shadow-xl overflow-hidden",
+        className: "bg-white rounded-3xl md:rounded-[2rem] border border-slate-100 shadow-xl overflow-hidden",
         children: [/*#__PURE__*/_jsxs("div", {
           className: "p-6 border-b border-slate-50 bg-slate-50/50 flex items-center justify-between",
           children: [/*#__PURE__*/_jsx("h3", {
@@ -151,7 +124,7 @@ export default function ItineraryDisplay({
           defaultValue: "day-1",
           children: itinerary.daily_plan.sort((a, b) => a.day - b.day).map(day => /*#__PURE__*/_jsxs(AccordionItem, {
             value: `day-${day.day}`,
-            className: "border-none px-6",
+            className: "border-none px-4 md:px-6",
             children: [/*#__PURE__*/_jsx(AccordionTrigger, {
               className: "py-6 hover:no-underline group",
               children: /*#__PURE__*/_jsxs("div", {
@@ -214,7 +187,7 @@ export default function ItineraryDisplay({
                 }), /*#__PURE__*/_jsxs("div", {
                   className: "space-y-6",
                   children: [day.accommodation && /*#__PURE__*/_jsxs("div", {
-                    className: "bg-orange-50/50 p-6 rounded-3xl border border-orange-100",
+                    className: "bg-orange-50/50 p-5 md:p-6 rounded-2xl md:rounded-3xl border border-orange-100",
                     children: [/*#__PURE__*/_jsxs("h5", {
                       className: "flex items-center gap-2 font-black text-xs uppercase tracking-widest text-orange-600 mb-4",
                       children: [/*#__PURE__*/_jsx(HomeIcon, {
@@ -238,7 +211,7 @@ export default function ItineraryDisplay({
                       })]
                     })]
                   }), /*#__PURE__*/_jsxs("div", {
-                    className: "bg-slate-50 p-6 rounded-3xl border border-slate-100",
+                    className: "bg-slate-50 p-5 md:p-6 rounded-2xl md:rounded-3xl border border-slate-100",
                     children: [/*#__PURE__*/_jsxs("h5", {
                       className: "flex items-center gap-2 font-black text-xs uppercase tracking-widest text-slate-400 mb-4",
                       children: [/*#__PURE__*/_jsx(Car, {
@@ -266,7 +239,35 @@ export default function ItineraryDisplay({
             })]
           }, day.day))
         })]
-      })]
+      }),
+      /* Total Investment Banner - MOVED TO BOTTOM PER USER REQUEST */
+      /*#__PURE__*/_jsxs("div", {
+        className: "glass p-5 md:p-8 rounded-3xl md:rounded-[2rem] border-orange-200/50 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl mt-8",
+        children: [/*#__PURE__*/_jsxs("div", {
+          className: "flex items-center gap-4 w-full",
+          children: [/*#__PURE__*/_jsx("div", {
+            className: "h-14 w-14 rounded-full bg-slate-900 flex items-center justify-center text-white shadow-lg shrink-0",
+            children: /*#__PURE__*/_jsx(Wallet, {
+              className: "h-7 w-7 text-orange-500"
+            })
+          }), /*#__PURE__*/_jsxs("div", {
+            children: [/*#__PURE__*/_jsx("p", {
+              className: "text-[10px] font-black uppercase tracking-widest text-slate-400",
+              children: "Total Investment"
+            }), /*#__PURE__*/_jsx("h3", {
+              className: "text-xl md:text-3xl font-black text-slate-800 leading-tight",
+              children: itinerary.total_estimated_cost
+            })]
+          })]
+        }), /*#__PURE__*/_jsx("div", {
+          className: "w-full md:max-w-md",
+          children: /*#__PURE__*/_jsxs("p", {
+            className: "text-sm font-medium text-slate-500 italic leading-relaxed text-left md:text-right italic",
+            children: ["\"", itinerary.notes || 'May your journey be filled with divine light and infinite peace.', "\""]
+          })
+        })]
+      }),
+]
     });
   }
   return /*#__PURE__*/_jsxs("div", {

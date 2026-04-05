@@ -3,14 +3,13 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ItineraryForm from '../components/chat/itinerary-form';
 import ItineraryDisplay from '../components/chat/itinerary-display';
-import ChatAgent from '../components/chat/chat-agent';
 import { getItinerary } from '../api/chatActions';
 import { useToast } from '../hooks/use-toast';
 import {
   Dialog, DialogContent, DialogTrigger,
   DialogTitle, DialogDescription as DialogDescriptionComponent,
 } from '../components/ui/dialog';
-import { Bot, Sparkles, ArrowRight, FileText, Calendar, Download } from 'lucide-react';
+import { Sparkles, ArrowRight, FileText, Calendar, Download, Compass, Wallet } from 'lucide-react';
 
 export default function ChatbotPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -334,16 +333,16 @@ export default function ChatbotPage() {
   </div>
 
   <div class="pdf-body">
-    <div class="cost-banner">
+    <div class="schedule-heading">Daily Schedule</div>
+    ${dailyPlanHTML}
+
+    <div class="cost-banner" style="margin-top: 32px;">
       <div>
         <div class="total-label">Total Estimated Investment</div>
         <div class="total-value">${itn.total_estimated_cost || 'N/A'}</div>
       </div>
       <div class="notes-text">&ldquo;${itn.notes || 'May your journey be filled with divine light and infinite peace.'}&rdquo;</div>
     </div>
-
-    <div class="schedule-heading">Daily Schedule</div>
-    ${dailyPlanHTML}
   </div>
 
   <div class="pdf-footer">
@@ -368,37 +367,53 @@ export default function ChatbotPage() {
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-orange-50 to-red-50 text-slate-800 leading-relaxed font-sans overflow-x-hidden">
       <Header />
 
-      <div className="pt-[100px] flex-grow flex flex-col items-center">
+      <div className="pt-24 md:pt-[100px] flex-grow flex flex-col items-center">
         <section className="text-center py-6 md:py-10 px-6 max-w-4xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/80 border border-orange-100/50 shadow-sm mb-4 rounded-full">
             <Sparkles className="h-3.5 w-3.5 text-orange-600" />
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-orange-600">AI Powered Pilgrimage</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-none mb-4">
+          <h1 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 leading-none mb-4">
             Divine <span className="text-orange-600">Journey Planner</span>
           </h1>
-          <p className="text-slate-500 font-medium text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+          <p className="text-slate-500 font-medium text-xs md:text-base leading-relaxed max-w-xl mx-auto">
             Let our sacred intelligence craft an auspicious itinerary for your pilgrimage.
           </p>
         </section>
 
         <section className="container mx-auto px-6 py-4 max-w-4xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-
+          <div className="flex flex-col gap-8">
             <Dialog open={formOpen} onOpenChange={setFormOpen}>
               <DialogTrigger asChild>
-                <div onClick={() => setFormOpen(true)} className="group relative cursor-pointer overflow-hidden rounded-[2.5rem] bg-white p-1 shadow-xl transition-all hover:shadow-orange-200/50 hover:-translate-y-2 transform duration-300 border border-white">
+                <div onClick={() => setFormOpen(true)} className="group relative cursor-pointer overflow-hidden rounded-3xl md:rounded-[2.5rem] bg-white p-1 shadow-xl transition-all hover:shadow-orange-200/50 hover:-translate-y-2 transform duration-300 border border-white w-full">
                   <div className="absolute inset-0 bg-slate-100 opacity-0 group-hover:opacity-10 transition-all duration-700" />
-                  <div className="relative rounded-[2.2rem] bg-slate-50/20 p-8 text-center border-2 border-white h-full flex flex-col items-center justify-center">
-                    <div className="mb-6 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center text-slate-600 transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 border border-slate-50">
-                      <FileText size={32} />
+                  <div className="relative rounded-[2.2rem] bg-slate-50/20 p-8 md:p-12 text-center border-2 border-white h-full flex flex-col items-center justify-center">
+                    <div className="mb-4 md:mb-6 w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl md:rounded-3xl shadow-lg flex items-center justify-center text-orange-600 transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 border border-slate-50">
+                      <FileText className="w-8 h-8 md:w-10 md:h-10" />
                     </div>
-                    <h2 className="text-2xl font-black text-slate-900 tracking-tight mb-2">Yatraa Planner</h2>
-                    <p className="text-slate-500 font-bold mb-6 text-[11px] leading-snug max-w-[200px] mx-auto">
-                      Enter your travel details here.
+                    <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight mb-2 md:mb-4">Yatra Planner</h2>
+                    <p className="text-slate-500 font-bold mb-6 md:mb-8 text-xs md:text-sm leading-relaxed max-w-lg mx-auto px-4 md:px-0">
+                      Our smart AI will help you plan your pilgrimage perfectly. 
+                      Just enter your details and get a complete day-by-day plan 
+                      ready for your trip.
                     </p>
-                    <div className="mt-auto px-6 py-3 bg-slate-900 text-white rounded-xl text-[9px] font-black uppercase tracking-widest flex items-center gap-2 shadow-xl group-hover:bg-orange-600 transition-colors">
-                      Open Planner <ArrowRight size={12} />
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 w-full mb-8 md:mb-10 px-4 md:px-0">
+                      {[
+                        { icon: <Compass className="w-4 h-4 md:w-5 md:h-5 text-orange-500" />, title: "Best Routes", desc: "Shortest and safest paths for you" },
+                        { icon: <Wallet className="w-4 h-4 md:w-5 md:h-5 text-orange-600" />, title: "Budgeting", desc: "Know your total trip cost instantly" },
+                        { icon: <Calendar className="w-4 h-4 md:w-5 md:h-5 text-orange-700" />, title: "Daily Plan", desc: "Morning to night schedule ready" }
+                      ].map((feature, i) => (
+                        <div key={i} className="bg-white/50 p-3 md:p-4 rounded-xl md:rounded-2xl border border-gray-100 hover:border-orange-100 transition-all">
+                          <div className="mb-2 flex justify-center">{feature.icon}</div>
+                          <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-800 mb-1">{feature.title}</h4>
+                          <p className="text-[9px] font-bold text-slate-400 uppercase leading-snug">{feature.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-xl md:rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center gap-3 shadow-2xl group-hover:bg-orange-600 transition-all">
+                      Start Planning <ArrowRight size={16} />
                     </div>
                   </div>
                 </div>
@@ -409,39 +424,13 @@ export default function ChatbotPage() {
                 <ItineraryForm onSubmit={handleFormSubmit} isLoading={isLoading} />
               </DialogContent>
             </Dialog>
-
-            <Dialog>
-              <DialogTrigger asChild>
-                <div className="group relative cursor-pointer overflow-hidden rounded-[2.5rem] bg-white p-1 shadow-xl transition-all hover:shadow-orange-200/50 hover:-translate-y-2 transform duration-300 border border-white">
-                  <div className="absolute inset-0 bg-orange-100 opacity-0 group-hover:opacity-10 transition-all duration-700" />
-                  <div className="relative rounded-[2.2rem] bg-slate-50/20 p-8 text-center border-2 border-white h-full flex flex-col items-center justify-center">
-                    <div className="mb-6 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center text-orange-600 transition-all duration-500 group-hover:-rotate-6 group-hover:scale-110 border border-orange-50">
-                      <Bot size={32} />
-                    </div>
-                    <h2 className="text-2xl font-black text-slate-900 tracking-tight mb-2">Sacred Chat Bot</h2>
-                    <p className="text-slate-500 font-bold mb-6 text-[11px] leading-snug max-w-[200px] mx-auto">
-                      Talk to our AI for a personalized plan
-                    </p>
-                    <div className="mt-auto px-6 py-3 bg-slate-900 text-white rounded-xl text-[9px] font-black uppercase tracking-widest flex items-center gap-2 shadow-xl group-hover:bg-orange-600 transition-colors">
-                      Start Chat <ArrowRight size={12} />
-                    </div>
-                  </div>
-                </div>
-              </DialogTrigger>
-              <DialogContent className="max-w-4xl h-[90vh] md:h-[85vh] flex flex-col p-0 overflow-hidden border-none shadow-2xl rounded-[3rem] bg-white/95 backdrop-blur-xl">
-                <DialogTitle className="sr-only">Conversational Assistant</DialogTitle>
-                <DialogDescriptionComponent className="sr-only">Talk to our assistant for a custom plan.</DialogDescriptionComponent>
-                <ChatAgent onItineraryReady={handleFormSubmit} />
-              </DialogContent>
-            </Dialog>
-
           </div>
         </section>
 
         {itinerary && (
-          <section className="container mx-auto px-6 py-12 animate-fadeInUp max-w-4xl">
-            <div className="bg-white/90 backdrop-blur-3xl rounded-[3rem] border border-white shadow-2xl overflow-hidden flex flex-col">
-              <div className="px-8 py-6 border-b border-gray-100 flex items-center justify-between bg-white/40">
+          <section className="container mx-auto px-4 md:px-6 py-8 md:py-12 animate-fadeInUp max-w-4xl w-full">
+            <div className="bg-white/90 backdrop-blur-3xl rounded-3xl md:rounded-[3rem] border border-white shadow-2xl overflow-hidden flex flex-col">
+              <div className="px-5 md:px-8 py-4 md:py-6 border-b border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/40">
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-orange-600 to-red-600 flex items-center justify-center text-white shadow-xl shadow-orange-100">
                     <Calendar className="h-6 w-6" />
@@ -456,13 +445,13 @@ export default function ChatbotPage() {
                 </div>
                 <button
                   onClick={downloadPDF}
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-orange-600 text-white text-[9px] font-black uppercase tracking-widest transition-all shadow-lg active:scale-95"
+                  className="flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-orange-600 text-white text-[9px] font-black uppercase tracking-widest transition-all shadow-lg active:scale-95"
                 >
                   <Download size={14} />
                   Download PDF
                 </button>
               </div>
-              <div className="flex-1 p-8 bg-slate-50/20">
+              <div className="flex-1 p-4 md:p-8 bg-slate-50/20">
                 <ItineraryDisplay itinerary={itinerary} isLoading={isLoading} error={error} />
               </div>
             </div>

@@ -210,7 +210,7 @@ const AdminPage = () => {
 
             {/* Mobile Sidebar Toggle */}
             <div className="lg:hidden fixed bottom-6 right-6 z-[60] flex items-center gap-2">
-                <button 
+                <button
                     onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                     className="w-14 h-14 bg-slate-900 text-white rounded-2xl shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all"
                 >
@@ -218,8 +218,8 @@ const AdminPage = () => {
                 </button>
             </div>
 
-            <div className={`flex-1 flex flex-col lg:flex-row transition-all duration-500 max-w-[1800px] mx-auto w-full group ${alerts.length > 0 ? 'pt-40 md:pt-48' : 'pt-20 md:pt-24'}`}>
-                
+            <div className={`flex-1 flex flex-col lg:flex-row transition-all duration-500 max-w-[1800px] mx-auto w-full group ${alerts.length > 0 ? 'pt-32 md:pt-40' : 'pt-20 md:pt-24'}`}>
+
                 {/* Sidebar Navigation */}
                 <aside className={`
                     fixed inset-y-0 left-0 z-50 w-72 bg-white border-r border-slate-100 p-6 transition-transform duration-300 lg:sticky lg:top-24 lg:h-[calc(100vh-6rem)] lg:translate-x-0
@@ -249,7 +249,7 @@ const AdminPage = () => {
                                     className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl font-bold text-sm transition-all ${activeTab === tab.id
                                         ? 'bg-slate-900 text-white shadow-lg translate-x-1'
                                         : 'text-slate-500 hover:bg-slate-50 border border-transparent hover:border-slate-100'
-                                    }`}
+                                        }`}
                                 >
                                     <tab.icon size={18} className={activeTab === tab.id ? 'text-orange-400' : 'opacity-70'} />
                                     {tab.label}
@@ -258,33 +258,26 @@ const AdminPage = () => {
                             ))}
                         </nav>
 
-                        <div className="mt-6 p-5 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl text-white relative overflow-hidden group/audit">
-                            <div className="relative z-10">
-                                <h4 className="text-xs font-black uppercase tracking-widest mb-1.5">System Audit</h4>
-                                <p className="text-[10px] text-slate-400 font-bold mb-3 leading-relaxed">Infrastructure status: Secure</p>
-                                <button className="w-full py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all">Check Logs</button>
-                            </div>
-                            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-orange-600/10 rounded-full blur-xl group-hover/audit:scale-150 transition-transform"></div>
-                        </div>
+
                     </div>
                 </aside>
 
                 {/* Main Content Area */}
-                <main className="flex-1 p-3 md:p-6 lg:p-8 min-w-0 w-full overflow-hidden">
+                <main className="flex-1 p-2 md:p-6 lg:p-8 min-w-0 w-full overflow-hidden">
                     <div className="max-w-[1400px] mx-auto w-full">
-                        
+
                         {/* Mobile Header Bar */}
-                        <div className="lg:hidden flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
-                             <div>
-                                <h1 className="text-2xl font-black text-slate-900 uppercase tracking-tighter">
+                        <div className="lg:hidden flex items-center justify-between mb-6 pb-2 border-b border-slate-100">
+                            <div>
+                                <h1 className="text-xl font-black text-slate-900 uppercase tracking-tighter">
                                     {tabs.find(t => t.id === activeTab)?.label}
                                 </h1>
-                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Master Console</p>
-                             </div>
-                             <div className="flex gap-2">
-                                <div className="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></div>
-                                <span className="text-[9px] font-black text-emerald-600 uppercase">Live</span>
-                             </div>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Terminal Console</p>
+                            </div>
+                            <div className="flex gap-2">
+                                <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></div>
+                                <span className="text-[8px] font-black text-emerald-600 uppercase">Live</span>
+                            </div>
                         </div>
 
                         {/* Top Bar for Desktop */}
@@ -311,25 +304,25 @@ const AdminPage = () => {
                             </div>
                         ) : activeTab === 'overview' && (
                             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 mb-6">
                                     {[
                                         { label: 'Total Devotees', val: stats.totalUsers, icon: Users, color: 'text-blue-600', bg: 'bg-blue-50' },
                                         { label: 'Active Bookings', val: stats.totalCapacity, icon: Ticket, color: 'text-orange-600', bg: 'bg-orange-50' },
                                         { label: 'Reported Items', val: stats.totalLostItems, icon: Package, color: 'text-emerald-600', bg: 'bg-emerald-50' },
                                     ].map((s, idx) => (
-                                        <div key={idx} className="bg-white p-4 md:p-6 rounded-2xl md:rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-lg transition-all group">
-                                            <div className={`${s.bg} ${s.color} w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform`}>
-                                                <s.icon size={16} className="md:w-5 md:h-5" />
+                                        <div key={idx} className="bg-white p-3 md:p-6 rounded-2xl md:rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-lg transition-all group">
+                                            <div className={`${s.bg} ${s.color} w-7 h-7 md:w-10 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform`}>
+                                                <s.icon size={14} className="md:w-5 md:h-5" />
                                             </div>
                                             <p className="text-slate-400 text-[8px] md:text-[10px] font-black uppercase tracking-widest mb-0.5 md:mb-1">{s.label}</p>
-                                            <h3 className="text-lg md:text-2xl font-black text-slate-800">{s.val || 0}</h3>
+                                            <h3 className="text-base md:text-2xl font-black text-slate-800">{s.val || 0}</h3>
                                         </div>
                                     ))}
                                 </div>
 
                                 {/* Main Charts/Tables Placeholder */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                                    <div className="bg-white rounded-3xl md:rounded-[2.5rem] p-5 md:p-8 border border-slate-100 shadow-sm">
                                         <div className="flex justify-between items-center mb-8">
                                             <h3 className="text-xl font-bold">Flow Distribution</h3>
                                             <button className="text-xs font-bold text-orange-600 hover:underline">Full Map</button>
@@ -376,7 +369,7 @@ const AdminPage = () => {
                                         </div>
                                     </div>
 
-                                    <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm">
+                                    <div className="bg-white rounded-3xl md:rounded-[2.5rem] p-5 md:p-8 border border-slate-100 shadow-sm">
                                         <div className="flex justify-between items-center mb-8">
                                             <h3 className="text-xl font-bold">Live Activity Log</h3>
                                             <span className="px-2 py-1 bg-rose-50 text-rose-600 rounded-lg text-[10px] font-black uppercase">{lostItems.length} Recent Events</span>
@@ -404,9 +397,9 @@ const AdminPage = () => {
                         )}
 
                         {activeTab === 'users' && (
-                            <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
+                            <div className="bg-white rounded-3xl md:rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
                                 <div className="p-4 md:p-8 border-b border-slate-50 flex flex-col md:flex-row justify-between items-start md:items-center bg-slate-50/30 gap-4">
-                                    <h3 className="text-xl md:text-2xl font-black">All Devotees</h3>
+                                    <h3 className="text-lg md:text-2xl font-black">All Devotees</h3>
                                     <div className="relative w-full md:w-64">
                                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
                                         <input type="text" placeholder="Search by name or ID..." className="pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-sm focus:border-orange-500 outline-none w-full shadow-sm" />
@@ -426,9 +419,9 @@ const AdminPage = () => {
                                         <tbody className="divide-y divide-slate-50">
                                             {users.map(u => (
                                                 <tr key={u.client_id} className="hover:bg-slate-50 transition-colors">
-                                                    <td className="px-8 py-5">
-                                                        <div className="flex items-center gap-3">
-                                                            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-orange-100 shadow-sm">
+                                                    <td className="px-4 md:px-8 py-4 md:py-5">
+                                                        <div className="flex items-center gap-2 md:gap-3">
+                                                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border-2 border-orange-100 shadow-sm">
                                                                 {u.profile_image ? (
                                                                     <img
                                                                         src={getImageUrl(u.profile_image)}
@@ -438,27 +431,27 @@ const AdminPage = () => {
                                                                 ) : (
                                                                     <div className="w-full h-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold">
                                                                         {u.name[0]}
-                                                                    </div>
-                                                                )}
+                                                                    </div>                                                                 )}
                                                             </div>
-                                                            <div>
-                                                                <p className="font-bold text-slate-900">{u.name}</p>
-                                                                <p className="text-[10px] text-slate-400 font-mono">ID-{u.client_id.toString().padStart(6, '0')}</p>
+                                                            <div className="min-w-0">
+                                                                <p className="font-bold text-slate-900 text-xs md:text-sm truncate">{u.name}</p>
+                                                                <p className="text-[9px] md:text-[10px] text-slate-400 font-mono">ID-{u.client_id.toString().padStart(6, '0')}</p>
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td className="px-8 py-5">
-                                                        <span className={`px-2 py-1 rounded-lg text-[10px] font-black uppercase ${u.userType === 'Premium' ? 'bg-orange-100 text-orange-600' : 'bg-slate-100 text-slate-600'}`}>
+                                                    <td className="px-4 md:px-8 py-4 md:py-5">
+                                                        <span className={`px-2 py-1 rounded-lg text-[9px] md:text-[10px] font-black uppercase ${u.userType === 'Premium' ? 'bg-orange-100 text-orange-600' : 'bg-slate-100 text-slate-600'}`}>
                                                             {u.userType}
                                                         </span>
                                                     </td>
-                                                    <td className="px-8 py-5">
-                                                        <div className="flex items-center gap-2">
+                                                    <td className="px-4 md:px-8 py-4 md:py-5">
+                                                        <div className="flex items-center gap-1.5 md:gap-2">
                                                             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-                                                            <span className="text-xs font-bold text-slate-600">Registered</span>
+                                                            <span className="text-[10px] md:text-xs font-bold text-slate-600">Registered</span>
                                                         </div>
                                                     </td>
-                                                    <td className="px-8 py-5 text-sm font-medium text-slate-500">{new Date(u.created_at).toLocaleDateString()}</td>
+                                                    <td className="px-4 md:px-8 py-4 md:py-5 text-xs md:sm font-medium text-slate-500">{new Date(u.created_at).toLocaleDateString()}</td>
+
                                                     <td className="px-8 py-5">
                                                         <button className="p-2 hover:bg-white rounded-lg text-slate-300 hover:text-slate-600 transition-all border border-transparent hover:border-slate-200">
                                                             <MoreVertical size={16} />
@@ -473,8 +466,8 @@ const AdminPage = () => {
                         )}
 
                         {activeTab === 'signage' && (
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm flex flex-col">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <div className="bg-white rounded-3xl md:rounded-[2.5rem] p-5 md:p-8 border border-slate-100 shadow-sm flex flex-col">
                                     <div className="w-20 h-20 bg-orange-100 text-orange-600 rounded-[2rem] flex items-center justify-center mb-6">
                                         <Monitor size={40} />
                                     </div>
@@ -535,7 +528,7 @@ const AdminPage = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-slate-900 rounded-[2.5rem] p-8 text-white relative flex flex-col">
+                                <div className="bg-slate-900 rounded-3xl md:rounded-[2.5rem] p-8 text-white relative flex flex-col">
                                     <div className="flex justify-between items-center mb-8">
                                         <h3 className="text-lg font-bold flex items-center gap-2">
                                             <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span> Live Active Alerts
@@ -579,9 +572,9 @@ const AdminPage = () => {
                         )}
 
                         {activeTab === 'lostfound' && (
-                            <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                <div className="p-8 border-b border-slate-50 flex justify-between items-center bg-slate-50/30">
-                                    <h3 className="text-2xl font-black">Lost & Found Repository</h3>
+                            <div className="bg-white rounded-3xl md:rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <div className="p-4 md:p-8 border-b border-slate-50 flex justify-between items-center bg-slate-50/30">
+                                    <h3 className="text-lg md:text-2xl font-black">Lost & Found Repository</h3>
                                     <button className="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold hover:bg-slate-50 transition-all flex items-center gap-2">
                                         <Search size={14} /> Filter Reports
                                     </button>
@@ -642,9 +635,9 @@ const AdminPage = () => {
                         )}
 
                         {activeTab === 'bookings' && (
-                            <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                <div className="p-8 border-b border-slate-50 flex justify-between items-center bg-slate-50/30">
-                                    <h3 className="text-2xl font-black">Ticket Bookings</h3>
+                            <div className="bg-white rounded-3xl md:rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <div className="p-4 md:p-8 border-b border-slate-50 flex justify-between items-center bg-slate-50/30">
+                                    <h3 className="text-lg md:text-2xl font-black">Ticket Bookings</h3>
                                 </div>
                                 <div className="overflow-x-auto w-full">
                                     <table className="w-full text-left min-w-[600px]">
@@ -714,103 +707,102 @@ const AdminPage = () => {
                                 </div>
                             </div>
                         )}
-
-                        {activeTab === 'emergency' && (
-                            <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                <div className="flex justify-between items-center bg-red-600 rounded-[2rem] p-8 text-white shadow-xl shadow-red-600/20">
-                                    <div className="flex items-center gap-6">
-                                        <div className="w-16 h-16 bg-white/20 rounded-[1.5rem] flex items-center justify-center border border-white/10 animate-pulse">
-                                            <ShieldAlert size={32} />
+                         {activeTab === 'emergency' && (
+                            <div className="space-y-4 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <div className="flex flex-col md:flex-row justify-between items-start md:items-center bg-red-600 rounded-3xl md:rounded-[2rem] p-5 md:p-8 text-white shadow-xl shadow-red-600/20 gap-4">
+                                    <div className="flex items-center gap-4 md:gap-6">
+                                        <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-2xl md:rounded-[1.5rem] flex items-center justify-center border border-white/10 animate-pulse shrink-0">
+                                            <ShieldAlert size={28} className="md:w-8 md:h-8" />
                                         </div>
                                         <div>
-                                            <h2 className="text-3xl font-black italic tracking-tighter uppercase">Emergency Mission Control</h2>
-                                            <p className="text-red-100 text-xs font-bold uppercase tracking-widest mt-1 opacity-80">Divine Safety Protocol Active • Sector Monitoring ON</p>
+                                            <h2 className="text-xl md:text-3xl font-black italic tracking-tighter uppercase leading-none">Emergency Control</h2>
+                                            <p className="text-red-100 text-[9px] md:text-xs font-bold uppercase tracking-widest mt-1 opacity-80">Safety Protocol Active</p>
                                         </div>
                                     </div>
-                                    <div className="px-6 py-3 bg-black/20 rounded-2xl border border-white/10 text-center">
-                                        <div className="text-[10px] font-black uppercase tracking-widest text-red-200">Active Signals</div>
-                                        <div className="text-2xl font-black">{sosAlerts.filter(a => a.status === 'active').length}</div>
+                                    <div className="px-4 py-2 md:px-6 md:py-3 bg-black/20 rounded-xl md:rounded-2xl border border-white/10 text-center flex md:block items-center gap-3">
+                                        <div className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-red-200">Active Signals</div>
+                                        <div className="text-lg md:text-2xl font-black">{sosAlerts.filter(a => a.status === 'active').length}</div>
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
                                     {sosAlerts.length === 0 ? (
-                                        <div className="lg:col-span-2 py-24 bg-white rounded-[3rem] border-2 border-dashed border-slate-100 flex flex-col items-center justify-center text-slate-300">
-                                            <ShieldAlert size={64} className="mb-4 opacity-20" />
-                                            <p className="text-sm font-black uppercase tracking-widest">No Emergency Signals Detected</p>
+                                        <div className="lg:col-span-2 py-16 md:py-24 bg-white rounded-3xl md:rounded-[3rem] border-2 border-dashed border-slate-100 flex flex-col items-center justify-center text-slate-300">
+                                            <ShieldAlert size={48} className="md:w-16 md:h-16 mb-4 opacity-20" />
+                                            <p className="text-xs md:text-sm font-black uppercase tracking-widest">No Emergency Signals</p>
                                         </div>
                                     ) : (
                                         sosAlerts.map(sos => (
-                                            <div key={sos.sos_id} className={`bg-white rounded-[2.5rem] overflow-hidden border transition-all hover:shadow-2xl ${sos.status === 'active' ? 'border-red-500 shadow-xl shadow-red-600/5' : 'border-slate-100'}`}>
-                                                <div className={`p-6 flex justify-between items-center ${sos.status === 'active' ? 'bg-red-50' : 'bg-slate-50'}`}>
-                                                    <div className="flex items-center gap-4">
-                                                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-red-600 shadow-sm border border-red-100">
-                                                            <Navigation size={20} />
+                                            <div key={sos.sos_id} className={`bg-white rounded-3xl md:rounded-[2.5rem] overflow-hidden border transition-all hover:shadow-2xl ${sos.status === 'active' ? 'border-red-500 shadow-xl shadow-red-600/5' : 'border-slate-100'}`}>
+                                                <div className={`p-4 md:p-6 flex justify-between items-center ${sos.status === 'active' ? 'bg-red-50' : 'bg-slate-50'}`}>
+                                                    <div className="flex items-center gap-3 md:gap-4">
+                                                        <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl md:rounded-2xl flex items-center justify-center text-red-600 shadow-sm border border-red-100">
+                                                            <Navigation size={18} className="md:w-5 md:h-5" />
                                                         </div>
                                                         <div>
-                                                            <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Tracking ID</span>
-                                                            <h4 className="text-sm font-black uppercase tracking-tighter text-slate-800">#{sos.sos_id.toString().padStart(4, '0')}</h4>
+                                                            <span className="text-[8px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Tracking ID</span>
+                                                            <h4 className="text-xs md:text-sm font-black uppercase tracking-tighter text-slate-800">#{sos.sos_id.toString().padStart(4, '0')}</h4>
                                                         </div>
                                                     </div>
-                                                    <div className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest ${sos.status === 'active' ? 'bg-red-600 text-white animate-pulse' : 'bg-emerald-100 text-emerald-600'}`}>
+                                                    <div className={`px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest ${sos.status === 'active' ? 'bg-red-600 text-white animate-pulse' : 'bg-emerald-100 text-emerald-600'}`}>
                                                         {sos.status}
                                                     </div>
                                                 </div>
 
-                                                <div className="p-8 space-y-6">
-                                                    <div className="flex items-start gap-4">
-                                                        <img 
-                                                            src={getImageUrl(sos.Client?.profile_image) || "https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg"} 
-                                                            className="w-16 h-16 rounded-[1.25rem] object-cover border-2 border-slate-50 shadow-sm"
+                                                <div className="p-5 md:p-8 space-y-4 md:space-y-6">
+                                                    <div className="flex items-start gap-3 md:gap-4">
+                                                        <img
+                                                            src={getImageUrl(sos.Client?.profile_image) || "https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg"}
+                                                            className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[1.25rem] object-cover border-2 border-slate-50 shadow-sm"
                                                         />
-                                                        <div className="flex-1">
-                                                            <div className="flex items-center gap-2">
-                                                                <h3 className="text-xl font-black text-slate-800 tracking-tight">{sos.Client?.name}</h3>
-                                                                <span className="px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-md text-[9px] font-black uppercase tracking-widest">{sos.Client?.userType}</span>
+                                                        <div className="flex-1 min-w-0">
+                                                            <div className="flex flex-wrap items-center gap-2">
+                                                                <h3 className="text-base md:text-xl font-black text-slate-800 tracking-tight truncate">{sos.Client?.name}</h3>
+                                                                <span className="px-1.5 py-0.5 bg-indigo-50 text-indigo-600 rounded-md text-[8px] font-black uppercase tracking-widest">{sos.Client?.userType}</span>
                                                             </div>
-                                                            <div className="space-y-1 mt-2">
-                                                                <div className="flex items-center gap-2 text-slate-500 text-xs font-medium">
-                                                                    <div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> {sos.Client?.phone}
+                                                            <div className="space-y-0.5 mt-1">
+                                                                <div className="flex items-center gap-2 text-slate-500 text-[10px] md:text-xs font-medium truncate">
+                                                                    <div className="w-1 h-1 bg-slate-300 rounded-full"></div> {sos.Client?.phone}
                                                                 </div>
-                                                                <div className="flex items-center gap-2 text-slate-500 text-xs font-medium">
-                                                                    <div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> {sos.Client?.email}
+                                                                <div className="flex items-center gap-2 text-slate-500 text-[10px] md:text-xs font-medium truncate">
+                                                                    <div className="w-1 h-1 bg-slate-300 rounded-full"></div> {sos.Client?.email}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
 
-                                                    <div className="bg-slate-950 p-6 rounded-[2rem] text-blue-400 font-mono text-[11px] relative overflow-hidden group">
-                                                        <div className="absolute top-0 right-0 p-4 opacity-20 text-blue-200">
-                                                            <MapPin size={40} />
+                                                    <div className="bg-slate-950 p-4 md:p-6 rounded-2xl md:rounded-[2rem] text-blue-400 font-mono text-[9px] md:text-[11px] relative overflow-hidden group">
+                                                        <div className="absolute top-0 right-0 p-3 opacity-20 text-blue-200">
+                                                            <MapPin size={30} className="md:w-10 md:h-10" />
                                                         </div>
                                                         <div className="relative z-10">
-                                                            <div className="flex justify-between items-center mb-4">
-                                                                <span className="text-blue-900 font-black uppercase text-[9px] tracking-widest">Satellite Lock Verified</span>
-                                                                <span className="text-blue-900 font-black uppercase text-[9px] tracking-widest">{new Date(sos.created_at).toLocaleTimeString()}</span>
+                                                            <div className="flex justify-between items-center mb-3">
+                                                                <span className="text-blue-900 font-black uppercase text-[8px] tracking-widest">Satellite Lock</span>
+                                                                <span className="text-blue-900 font-black uppercase text-[8px] tracking-widest">{new Date(sos.created_at).toLocaleTimeString()}</span>
                                                             </div>
-                                                            <div className="space-y-1">
-                                                                <div>LAT: {sos.lat}</div>
-                                                                <div>LNG: {sos.lng}</div>
-                                                                <div>ALT: 492m ABOVE MSL</div>
+                                                            <div className="space-y-0.5">
+                                                                <div className="truncate">LAT: {sos.lat}</div>
+                                                                <div className="truncate">LNG: {sos.lng}</div>
+                                                                <div className="truncate">ALT: 492m ABOVE MSL</div>
                                                             </div>
                                                         </div>
                                                     </div>
 
-                                                    <div className="pt-4 flex gap-4">
-                                                        <a 
+                                                    <div className="pt-2 flex gap-3 md:gap-4">
+                                                        <a
                                                             href={`https://www.google.com/maps/search/?api=1&query=${sos.lat},${sos.lng}`}
                                                             target="_blank"
                                                             rel="noopener noreferrer"
-                                                            className="flex-1 h-16 bg-slate-900 text-white rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 hover:translate-y-[-4px] hover:shadow-xl active:translate-y-0 shadow-lg shadow-slate-900/20 transition-all"
+                                                            className="flex-1 h-12 md:h-16 bg-slate-900 text-white rounded-xl md:rounded-2xl font-black text-[10px] md:text-xs uppercase tracking-widest flex items-center justify-center gap-2 md:gap-3 hover:translate-y-[-4px] hover:shadow-xl active:translate-y-0 shadow-lg shadow-slate-900/20 transition-all text-center"
                                                         >
-                                                            <Navigation size={18} /> REACH TO PILGRIM
+                                                            <Navigation size={14} className="md:w-[18px] md:h-[18px]" /> MAPS
                                                         </a>
-                                                        <button 
+                                                        <button
                                                             onClick={() => resolveSOS(sos.sos_id)}
                                                             title="Resolve & Clear Alert"
-                                                            className="w-16 h-16 bg-white border border-slate-200 text-slate-400 rounded-2xl flex items-center justify-center hover:bg-emerald-50 hover:text-emerald-500 hover:border-emerald-200 transition-all group"
+                                                            className="w-12 h-12 md:w-16 md:h-16 bg-white border border-slate-200 text-slate-400 rounded-xl md:rounded-2xl flex items-center justify-center hover:bg-emerald-50 hover:text-emerald-500 hover:border-emerald-200 transition-all group shrink-0"
                                                         >
-                                                            <CheckCircle2 size={24} className="group-hover:scale-110 transition-transform" />
+                                                            <CheckCircle2 size={20} className="md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
                                                         </button>
                                                     </div>
                                                 </div>
@@ -827,7 +819,7 @@ const AdminPage = () => {
 
             {/* Backdrop for mobile sidebar */}
             {isSidebarOpen && (
-                <div 
+                <div
                     onClick={() => setIsSidebarOpen(false)}
                     className="lg:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 transition-opacity"
                 />

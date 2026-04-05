@@ -277,7 +277,7 @@ const LostAndFound: React.FC = () => {
       <Header />
 
       {/* Hero Section */}
-      <div className="pt-24 pb-6 md:pt-28 md:pb-10 px-4 md:px-6 text-center bg-white border-b border-gray-100">
+      <div className="pt-20 pb-4 md:pt-28 md:pb-10 px-4 md:px-6 text-center bg-white border-b border-gray-100">
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-orange-600 mb-2 md:mb-3 animate-fade-in-up">
             <Sparkles size={12} className="md:w-3.5 md:h-3.5" />
@@ -305,8 +305,8 @@ const LostAndFound: React.FC = () => {
       <div className="max-w-7xl mx-auto px-3 md:px-6 py-6 md:py-12 w-full flex-grow">
 
         {/* Tab Switcher */}
-        <div className="mb-8 md:mb-10 flex justify-center">
-          <div className="inline-flex bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-200 p-1 gap-1">
+        <div className="mb-6 md:mb-10 flex justify-center">
+          <div className="inline-flex bg-white rounded-lg md:rounded-2xl shadow-sm border border-gray-200 p-1 gap-1">
             <button
               onClick={() => setActiveTab("lost-found")}
               className={`flex items-center gap-1.5 px-3 md:px-5 py-1.5 md:py-2 rounded-lg md:rounded-xl font-bold transition-all duration-300 text-[11px] md:text-xs uppercase tracking-wide ${activeTab === "lost-found"
@@ -347,7 +347,7 @@ const LostAndFound: React.FC = () => {
         {activeTab === "lost-found" ? (
           <div className="space-y-12">
             {/* ADD ITEM FORM */}
-            <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
+            <div className="max-w-5xl mx-auto bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
               <div className="bg-slate-900 p-4 md:p-6 flex items-center justify-between text-white">
                 <div className="flex items-center gap-2 md:gap-3">
                   <Upload className="text-orange-500 w-5 h-5 md:w-6 md:h-6" />
@@ -460,7 +460,7 @@ const LostAndFound: React.FC = () => {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {items.map((item) => (
-                    <div key={item.id} className="group bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col">
+                    <div key={item.id} className="group bg-white rounded-2xl md:rounded-3xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col">
                       <div className="relative w-full h-64 bg-slate-50 flex items-center justify-center p-2">
                         {item.image ? (
                           <img
@@ -514,7 +514,7 @@ const LostAndFound: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <button
                   onClick={() => setTrackingMode("own")}
-                  className="bg-white p-10 rounded-[2.5rem] shadow-xl border-2 border-slate-50 hover:border-orange-500 transition-all group text-center"
+                  className="bg-white p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] shadow-xl border-2 border-slate-50 hover:border-orange-500 transition-all group text-center"
                 >
                   <div className="w-20 h-20 bg-slate-900 text-white rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-600 group-hover:-translate-y-2 transition-all shadow-xl">
                     <User size={36} />
@@ -525,7 +525,7 @@ const LostAndFound: React.FC = () => {
 
                 <button
                   onClick={() => setTrackingMode("other")}
-                  className="bg-white p-10 rounded-[2.5rem] shadow-xl border-2 border-slate-50 hover:border-orange-500 transition-all group text-center"
+                  className="bg-white p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] shadow-xl border-2 border-slate-50 hover:border-orange-500 transition-all group text-center"
                 >
                   <div className="w-20 h-20 bg-slate-900 text-white rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-600 group-hover:-translate-y-2 transition-all shadow-xl">
                     <Search size={36} />
@@ -536,7 +536,7 @@ const LostAndFound: React.FC = () => {
               </div>
             ) : !locationHistory ? (
               /* SEARCH / LOAD FORM */
-              <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden animate-slide-up">
+              <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden animate-slide-up">
                 <div className="bg-slate-900 p-6 flex justify-between items-center">
                   <h2 className="text-xl font-bold text-white uppercase tracking-tight">
                     {trackingMode === "own" ? "Personal Tracking History" : "Find Devotee Path"}
@@ -606,7 +606,7 @@ const LostAndFound: React.FC = () => {
                 </div>
 
                 {locationHistory.history.some(h => h.latitude && h.longitude) && (
-                  <div className="bg-white rounded-[2.5rem] p-3 shadow-xl border border-gray-100 mb-8 overflow-hidden transform transition-all hover:shadow-2xl">
+                  <div className="bg-white rounded-3xl md:rounded-[2.5rem] p-2 md:p-3 shadow-xl border border-gray-100 mb-8 overflow-hidden transform transition-all hover:shadow-2xl">
                     <div className="p-6 border-b border-gray-50 flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="w-10 min-w-[40px] h-10 bg-orange-600 text-white rounded-xl flex items-center justify-center shadow-lg shadow-orange-600/20">
@@ -641,9 +641,9 @@ const LostAndFound: React.FC = () => {
                   <div className="space-y-4">
                     <h3 className="text-sm font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
                        <div className="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></div>
-                       Background Location Insights (Last 10 detected)
+                        Background Location Insights (Last 10 detected)
                     </h3>
-                    <div className="overflow-x-auto rounded-[2rem] border border-gray-100 shadow-xl bg-white hide-scrollbar">
+                    <div className="overflow-x-auto rounded-3xl md:rounded-[2rem] border border-gray-100 shadow-xl bg-white hide-scrollbar">
                       <table className="w-full text-left min-w-[800px]">
                         <thead className="bg-slate-900 text-white text-[10px] font-black uppercase tracking-[0.2em]">
                           <tr>
@@ -707,9 +707,9 @@ const LostAndFound: React.FC = () => {
                   <div className="space-y-4">
                     <h3 className="text-sm font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
                        <div className="w-2 h-2 rounded-full bg-orange-600"></div>
-                       Sacred Zone Registrations (Via QR Scans)
+                        Sacred Zone Registrations (Via QR Scans)
                     </h3>
-                    <div className="overflow-x-auto rounded-[2rem] border border-gray-100 shadow-xl bg-white hide-scrollbar">
+                    <div className="overflow-x-auto rounded-3xl md:rounded-[2rem] border border-gray-100 shadow-xl bg-white hide-scrollbar">
                       <table className="w-full text-left min-w-[800px]">
                         <thead className="bg-slate-900 text-white text-[10px] font-black uppercase tracking-[0.2em]">
                           <tr>

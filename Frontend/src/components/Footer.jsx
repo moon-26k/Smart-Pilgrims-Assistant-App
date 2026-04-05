@@ -95,8 +95,8 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Connect Section - Enhanced */}
-                    <div className="md:col-span-4 flex flex-col items-center md:items-start space-y-4 md:space-y-8 md:border-l md:border-white/5 md:pl-12">
+                    {/* Connect Section - Enhanced - Hidden on Mobile */}
+                    <div className="hidden md:flex md:col-span-4 flex-col items-center md:items-start space-y-4 md:space-y-8 md:border-l md:border-white/5 md:pl-12">
                         <h3 className="text-[11px] font-black uppercase tracking-[0.25em] text-orange-500 mb-0 flex items-center gap-2">
                             Support
                         </h3>
