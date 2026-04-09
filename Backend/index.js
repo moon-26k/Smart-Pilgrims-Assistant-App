@@ -46,6 +46,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://divya-yatra-tit.vercel.app",
   "https://divyayatra-tic.onrender.com",
+  "https://www.divyayatra.xyz"
 ];
 
 app.use(
