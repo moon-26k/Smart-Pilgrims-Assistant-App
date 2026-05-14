@@ -227,7 +227,7 @@ const Header = () => {
                         <button onClick={() => handleNavigation("/")} className="flex items-center gap-1.5 sm:gap-3 active:scale-95 transition-transform">
                             <div className="h-9 w-9 sm:h-12 lg:h-14 lg:w-14 rounded-full overflow-hidden flex items-center justify-center border-2 border-orange-50 bg-white shadow-sm flex-shrink-0">
                                 {!imgError ? (
-                                    <img src={logo} alt="Logo" className="h-full w-full object-cover" onError={() => setImgError(true)} />
+                                    <img src={logo} alt="Divya Yatra App Logo" className="h-full w-full object-cover" onError={() => setImgError(true)} />
                                 ) : (
                                     <div className="text-xl sm:text-2xl lg:text-4xl text-orange-600 font-bold">🕉</div>
                                 )}
@@ -261,7 +261,7 @@ const Header = () => {
                             >
                                 <div className="h-8 w-8 sm:h-11 rounded-full overflow-hidden border-2 border-orange-50 bg-orange-100 flex-shrink-0">
                                     {user?.profile_image || user?.photo ? (
-                                        <img src={user.profile_image ? resolveMediaUrl(user.profile_image) : user.photo} alt="Profile" className="h-full w-full object-cover" />
+                                        <img src={user.profile_image ? resolveMediaUrl(user.profile_image) : user.photo} alt={`${user?.name}'s profile avatar`} className="h-full w-full object-cover" />
                                     ) : (
                                         <div className="h-full w-full flex items-center justify-center bg-orange-100 text-orange-600 text-sm sm:text-lg font-bold">
                                             {user?.name?.[0]?.toUpperCase() || "Y"}
@@ -367,7 +367,7 @@ const Header = () => {
                             <div className="p-6 border-b border-gray-100 flex items-center justify-between">
                                 <div className="flex items-center gap-3">
                                     <div className="h-9 w-9 rounded-full overflow-hidden flex items-center justify-center border border-orange-100 flex-shrink-0">
-                                        {!imgError ? <img src={logo} alt="Logo" className="h-full w-full object-cover" /> : <div className="text-lg text-orange-600 font-bold">🕉</div>}
+                                        {!imgError ? <img src={logo} alt="Divya Yatra Logo" className="h-full w-full object-cover" /> : <div className="text-lg text-orange-600 font-bold">🕉</div>}
                                     </div>
                                     <span className="text-lg font-bold tracking-tight text-slate-700">Divya<span className="text-orange-600">Yatra</span></span>
                                 </div>
@@ -396,7 +396,7 @@ const Header = () => {
                                 <div className="space-y-3">
                                     <button onClick={() => handleNavigation("/profile")} className="w-full flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-100 shadow-sm hover:border-orange-500 transition-all text-left">
                                         <div className="h-10 w-10 rounded-full overflow-hidden border-2 border-orange-50 bg-orange-100 flex-shrink-0">
-                                            {user?.profile_image || user?.photo ? <img src={user.profile_image ? resolveMediaUrl(user.profile_image) : user.photo} alt="Profile" className="h-full w-full object-cover" /> : <div className="h-full w-full flex items-center justify-center bg-orange-100 text-orange-600 text-sm font-bold">{user?.name?.[0]?.toUpperCase() || "Y"}</div>}
+                                            {user?.profile_image || user?.photo ? <img src={user.profile_image ? resolveMediaUrl(user.profile_image) : user.photo} alt={`${user?.name}'s profile picture`} className="h-full w-full object-cover" /> : <div className="h-full w-full flex items-center justify-center bg-orange-100 text-orange-600 text-sm font-bold">{user?.name?.[0]?.toUpperCase() || "Y"}</div>}
                                         </div>
                                         <div className="min-w-0"><p className="text-sm font-bold text-slate-900 truncate">{user?.name || "Guest"}</p><p className="text-[11px] text-slate-500">View Profile Dashboard</p></div>
                                     </button>
