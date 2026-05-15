@@ -60,7 +60,8 @@ Smart-Pilgrims-Assistant-App/
 └── README.md                 # Project Documentation
 
 ## ⚙️ Detailed Setup Guide
-# 1. Prerequisites
+
+### 1. Prerequisites
 * **Node.js** (v18+)
 * **MySQL** Database (Cloud or Local)
 * **API Keys:** Gemini AI, Cloudinary, and Geoapify.
@@ -99,18 +100,20 @@ VITE_API_URL=http://localhost:5000
 
 npm run dev
 
+ ---
 
-### 🔑 Environment Variables Configuration
+## 🔑 Environment Variables Configuration
 
 | Category | Variables | Description |
 | :--- | :--- | :--- |
 | **Admin** | `ADMIN_EMAIL` | Admin user ki primary email address. |
 | **Database** | `DATABASE_URL`, `DB_MODE`, `DB_SSL` | MySQL connection string aur cloud/local mode configuration. |
 | **Gemini AI** | `GEMINI_API_KEY`, `GEMINI_API_KEY_BACKUP` | Google AI Studio se generate ki gayi primary aur backup API keys. |
-| **Auth** | `JWT_SECRET`, `REFRESH_TOKEN_SECRET`, `GOOGLE_CLIENT_ID` | JWT tokens aur Google OAuth login setup ke liye. |
-| **Cloud** | `CLOUDINARY_URL`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` | Images/files store aur manage karne ke liye Cloudinary credentials. |
+| **Auth** | `JWT_SECRET`, `REFRESH_TOKEN_SECRET`, `GOOGLE_CLIENT_ID` | JWT tokens aur Google OAuth login setup ke liye Cloudinary credentials. |
 | **Maps & Search** | `GEOAPIFY_API_KEY`, `SERP_API_KEY` | Location-based services aur search functionality ke liye. |
 | **Email (SMTP)** | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` | System notifications aur emails bhejne ke liye SMTP configuration. |
+
+---
 
 ## 🤝 Acknowledgements
 
