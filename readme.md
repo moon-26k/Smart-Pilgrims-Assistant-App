@@ -90,36 +90,51 @@ GOOGLE_CLIENT_ID=your_google_client_id
 
 npm run dev
 
-### 3. Frontend Setup
+
+## 3️. Frontend Setup
+
+Navigate to the frontend folder:
+
+```bash
 cd Frontend
-
 npm install
+```
 
+Create a `.env` file inside the Frontend folder and add:
+
+```env
 VITE_GOOGLE_CLIENT_ID=your_google_client_id
 VITE_API_URL=http://localhost:5000
+```
 
+Run the frontend:
+
+```bash
 npm run dev
-
- ---
-
-## 🔑 Environment Variables Configuration
-
-| Category | Variables | Description |
-| :--- | :--- | :--- |
-| **Admin** | `ADMIN_EMAIL` | Admin user ki primary email address. |
-| **Database** | `DATABASE_URL`, `DB_MODE`, `DB_SSL` | MySQL connection string aur cloud/local mode configuration. |
-| **Gemini AI** | `GEMINI_API_KEY`, `GEMINI_API_KEY_BACKUP` | Google AI Studio se generate ki gayi primary aur backup API keys. |
-| **Auth** | `JWT_SECRET`, `REFRESH_TOKEN_SECRET`, `GOOGLE_CLIENT_ID` | JWT tokens aur Google OAuth login setup ke liye Cloudinary credentials. |
-| **Maps & Search** | `GEOAPIFY_API_KEY`, `SERP_API_KEY` | Location-based services aur search functionality ke liye. |
-| **Email (SMTP)** | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` | System notifications aur emails bhejne ke liye SMTP configuration. |
+```
 
 ---
 
-## 🤝 Acknowledgements
+# 🔑 Environment Variables Configuration
 
-We would like to express our gratitude to the following for their contributions and support:
+| Category | Variables | Description |
+|----------|-----------|-------------|
+| **Admin** | `ADMIN_EMAIL` | Primary admin email address |
+| **Database** | `DATABASE_URL`, `DB_MODE`, `DB_SSL` | MySQL database connection & deployment configuration |
+| **Gemini AI** | `GEMINI_API_KEY`, `GEMINI_API_KEY_BACKUP` | API keys generated from Google AI Studio |
+| **Authentication** | `JWT_SECRET`, `REFRESH_TOKEN_SECRET`, `GOOGLE_CLIENT_ID` | JWT authentication & Google OAuth setup |
+| **Maps & Search** | `GEOAPIFY_API_KEY`, `SERP_API_KEY` | Location-based services and search support |
+| **Email (SMTP)** | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` | SMTP configuration for notifications & emails |
 
-* **Project Maintainers:** For providing the opportunity to contribute to this impactful project.
-* **Open Source Community:** For the amazing tools and libraries that made this project possible.
-* **Google Gemini API:** For powering the core AI capabilities of the assistant.
-* **Our Contributors:** Everyone who has helped in improving this codebase.
+---
+
+# 🤝 Acknowledgements
+
+We sincerely thank the following contributors and technologies that made this project possible:
+
+- **Project Maintainers** — For providing the opportunity to contribute to this impactful initiative.
+- **Open Source Community** — For the amazing libraries, frameworks, and developer tools.
+- **Google Gemini API** — For powering the AI-driven assistant features.
+- **Our Contributors** — Everyone who helped improve and support this project.
+
+---
