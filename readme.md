@@ -1,4 +1,4 @@
-# 🕋 Smart Pilgrims Assistant App
+# 🛕 Smart Pilgrims Assistant App
 
 An AI-powered assistant designed to help pilgrims with real-time information and guidance.
 
@@ -34,31 +34,36 @@ The **Smart Pilgrims Assistant App** is an AI-driven platform designed to enhanc
 
 ## 📂 Project Structure
 
+```bash
 Smart-Pilgrims-Assistant-App/
-├── 📁 AI_Core/                # AI & Computer Vision (Python based)
-│   ├── crowd_engine.py       
-│   ├── tts_engine.py         
-│   └── yolov8s.pt            
-├── 📁 Backend/               # Node.js & Express Server
-│   ├── 📁 config/            # DB & Cloudinary configurations
-│   ├── 📁 controllers/       
-│   ├── 📁 models/            
-│   ├── 📁 routes/            # API Endpoints
-│   ├── 📁 socket/            
-│   ├── 📁 utils/             
-│   ├── .Sampleenv            
-│   └── index.js              
-├── 📁 Frontend/              # React.js Vite Application
-│   ├── 📁 public/            
-│   ├── 📁 src/               # React Source Code
-│   │   ├── 📁 api/           # API calling logic
-│   │   ├── 📁 components/    
-│   │   ├── 📁 pages/         # Main Application Pages
-│   │   ├── 📁 temple1/       
-│   │   └── App.jsx           
-│   └── vite.config.js        # Vite configuration
-└── README.md                 # Project Documentation
-
+├── 📁 AI_Core/
+│   ├── crowd_engine.py
+│   ├── tts_engine.py
+│   └── yolov8s.pt
+│
+├── 📁 Backend/
+│   ├── 📁 config/
+│   ├── 📁 controllers/
+│   ├── 📁 models/
+│   ├── 📁 routes/
+│   ├── 📁 socket/
+│   ├── 📁 utils/
+│   ├── .Sampleenv
+│   └── index.js
+│
+├── 📁 Frontend/
+│   ├── 📁 public/
+│   ├── 📁 src/
+│   │   ├── 📁 api/
+│   │   ├── 📁 components/
+│   │   ├── 📁 pages/
+│   │   ├── 📁 temple1/
+│   │   └── App.jsx
+│   │
+│   └── vite.config.js
+│
+└── README.md
+```
 ## ⚙️ Detailed Setup Guide
 
 ### 1. Prerequisites
